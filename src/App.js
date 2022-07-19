@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import Form from "./components/Form/Form";
 import Pokemons from "./components/Pokemons/Pokemons";
 import PokemonsDetail from "./components/Pokemons/PokemonsDetail/PokemonsDetail";
+import { pokemons } from "./data";
 
 function App() {
     const openModal = useSelector((state) => state.actions.isOpen);
