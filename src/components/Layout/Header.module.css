@@ -1,0 +1,13 @@
+.Header {
+    /* display: flex;
+    justify-self: center;
+    align-items: center; */
+    height: 40px;
+    padding: 15px;
+    /* margin-top: 15px; */
+}
+.Header .HeaderActions {
+    /* width: 100%; */
+    display: flex;
+    justify-content: end;
+}
