@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Button from "../Ui/Button/Button";
 import classes from "./Header.module.css";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux/es/exports";
 import { actionModalSliceActions } from "../../store/modalActions-slice";
 

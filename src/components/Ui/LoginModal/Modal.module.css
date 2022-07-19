@@ -20,3 +20,13 @@
     z-index: 30;
     /* animation: slide-down 300ms ease-out forwards; */
 }
+.modal input {
+    outline: none;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px;
+}
+.modal p {
+    padding: 10px 0;
+}

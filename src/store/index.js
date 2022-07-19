@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import actionModalSlice from "./modalActions-slice";
 
 const store = configureStore({
-    reducer: { actionModalSlice: actionModalSlice },
+    reducer: { actions: actionModalSlice },
 });
 
 export default store;

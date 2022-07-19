@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Ui/Button/Button";
-// import Modal from "../Ui/Card/Modal";
+import Modal from "../Ui/LoginModal/loginModal";
 import classes from "./Form.module.css";
 import { useDispatch } from "react-redux/es/exports";
 import { actionModalSliceActions } from "../../store/modalActions-slice";
@@ -12,19 +12,13 @@ function Form() {
     };
     return (
         <div className={classes.Form}>
-            <div className={classes.inner}>
-                <div className={classes.inputs}>
-                    {/* <Modal> */}
-                    <p>Email</p>
-                    <input placeholder="Enter Your Email" />
-                    <p>Password</p>
-                    <input placeholder="Enter Your password" />
-                    {/* </Modal> */}
-                </div>
-                <div>
-                    <Button onClick={closeModalHandler}>Cancel</Button>
-                </div>
-            </div>
+            <Modal>
+                <p>Email</p>
+                <input placeholder="Enter Your Email" />
+                <p>Password</p>
+                <input placeholder="Enter Your password" />
+                <Button onClick={closeModalHandler}>Cancel</Button>
+            </Modal>
         </div>
     );
 }
