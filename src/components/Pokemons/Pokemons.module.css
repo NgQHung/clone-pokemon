@@ -1,0 +1,14 @@
+.Pokemons {
+    display: flex;
+    margin-top: 120px;
+}
+.Pokemons .CardPokemons {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 55px;
+}
+
+.DetailPokemons {
+    /* flex: 4; */
+    /* display: none; */
+}

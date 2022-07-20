@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Ui/Button/Button";
+import Button from "../../Ui/Button/Button";
 import classes from "./SearchBar.module.css";
 
 function SearchBar() {
