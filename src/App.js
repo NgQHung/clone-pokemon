@@ -9,6 +9,7 @@ import PokemonsDetail from "./components/Pokemons/PokemonsDetail/PokemonsDetail"
 
 function App() {
     const openModal = useSelector((state) => state.actions.isOpen);
+    // const showDetail = useSelector((state) => state.showDetailSlice.showDetail);
     return (
         <div className="App">
             <StyleGlobal>
@@ -16,7 +17,7 @@ function App() {
                 {openModal && <Form />}
                 <SearchBar />
                 <Pokemons />
-                {/* <PokemonsDetail /> */}
+                {/* {showDetail && <PokemonsDetail />} */}
             </StyleGlobal>
         </div>
     );

@@ -6,8 +6,10 @@ function SearchBar() {
     return (
         <div className={classes.SearchBar}>
             <div className={classes.SearchBarWrapper}>
-                <input placeholder="Search Your Pokemon" />
-                <Button>logo</Button>
+                <div className={classes.SearchBarContent}>
+                    <input placeholder="Search Your Pokemon" />
+                    <Button>logo</Button>
+                </div>
             </div>
         </div>
     );

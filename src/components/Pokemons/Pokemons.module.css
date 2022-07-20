@@ -1,11 +1,15 @@
 .Pokemons {
-    display: flex;
     margin-top: 120px;
+    width: 1080px;
+}
+.PokemonsContent {
+    display: flex;
+    justify-content: center;
 }
 .Pokemons .CardPokemons {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 55px;
+    row-gap: 65px;
 }
 
 .DetailPokemons {
