@@ -10,7 +10,7 @@ function Card(props) {
 
     const clickHandler = (e) => {
         e.preventDefault();
-        console.log(props.number);
+        // console.log(props.number);
         dispatch(showDetailActions.show(props.number));
     };
     return (

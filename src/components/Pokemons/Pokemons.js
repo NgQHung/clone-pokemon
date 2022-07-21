@@ -9,15 +9,23 @@ function Pokemons() {
     const [data, setData] = useState([]);
     const dispatch = useDispatch();
     const getDetail = useSelector((state) => state.showDetailSlice.data);
-    console.log(getDetail);
     const showDetail = useSelector((state) => state.showDetailSlice.showDetail);
+    const getDataClicked = useSelector((state) => state.showDetailSlice.dataClicked);
     const getData = async () => {
         const response = await fetch(
             "https://react-http-973bc-default-rtdb.firebaseio.com/pokemons.json"
         );
         const data = await response.json();
         setData(data);
-        dispatch(showDetailActions.updateData(data));
+        data.map((item) => {
+            return dispatch(
+                showDetailActions.updateData({
+                    name: item.name,
+                    img: item.imgUrl,
+                    number: item.id,
+                })
+            );
+        });
     };
     useEffect(() => {
         getData();

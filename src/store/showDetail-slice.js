@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialValue = { data: [], showDetail: false };
+const initialValue = { data: [], showDetail: false, dataClicked: [] };
+console.log(initialValue.data);
 
 const showDetailSlice = createSlice({
     name: "detail",
@@ -11,9 +12,20 @@ const showDetailSlice = createSlice({
             state.data.push(items);
         },
         show(state, action) {
-            state.showDetail = !state.showDetail;
+            state.showDetail = true;
             const id = action.payload;
-            state.data.filter((item) => id === item.id);
+            const clickedId = state.data.filter((item) => id === item.number);
+            state.dataClicked.pop();
+            const dataIsEmpty = state.dataClicked.length === 0;
+            if (dataIsEmpty) {
+                clickedId.map((item) =>
+                    state.dataClicked.push({
+                        img: item.img,
+                        name: item.name,
+                        number: item.number,
+                    })
+                );
+            }
         },
     },
 });
