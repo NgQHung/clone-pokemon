@@ -5,11 +5,9 @@ import Header from "./components/Layout/Header";
 import { useSelector } from "react-redux";
 import Form from "./components/Form/Form";
 import Pokemons from "./components/Pokemons/Pokemons";
-import PokemonsDetail from "./components/Pokemons/PokemonsDetail/PokemonsDetail";
 
 function App() {
     const openModal = useSelector((state) => state.actions.isOpen);
-    // const showDetail = useSelector((state) => state.showDetailSlice.showDetail);
     return (
         <div className="App">
             <StyleGlobal>
@@ -17,7 +15,6 @@ function App() {
                 {openModal && <Form />}
                 <SearchBar />
                 <Pokemons />
-                {/* {showDetail && <PokemonsDetail />} */}
             </StyleGlobal>
         </div>
     );

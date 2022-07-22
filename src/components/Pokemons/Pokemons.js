@@ -4,22 +4,47 @@ import Card from "../Ui/Card/Card";
 import PokemonsDetail from "./PokemonsDetail/PokemonsDetail";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { showDetailActions } from "../../store/showDetail-slice";
+import Button from "../Ui/Button/Button";
+import { loadMoreActions } from "../../store/loadMoreItems";
+import LoadedMorePokemons from "./LoadedMorePokemons/LoadedMorePokemons";
 
 function Pokemons() {
     const [data, setData] = useState([]);
+    const [firstData, setFirstData] = useState([]);
+    const [restData, setRestData] = useState([]);
+
     const dispatch = useDispatch();
-    const getDetail = useSelector((state) => state.showDetailSlice.data);
     const showDetail = useSelector((state) => state.showDetailSlice.showDetail);
-    const getDataClicked = useSelector((state) => state.showDetailSlice.dataClicked);
+    const showMoreData = useSelector((state) => state.loadMore.loadMoreIsClicked);
     const getData = async () => {
         const response = await fetch(
             "https://react-http-973bc-default-rtdb.firebaseio.com/pokemons.json"
         );
-        const data = await response.json();
+        var data = await response.json();
         setData(data);
         data.map((item) => {
             return dispatch(
                 showDetailActions.updateData({
+                    id: item.id,
+                    name: item.name,
+                    img: item.imgUrl,
+                    number: item.id,
+                })
+            );
+        });
+        setFirstData(data.slice(0, 12));
+        setRestData(data.slice(13, 150));
+    };
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const LoadHandler = (e) => {
+        e.preventDefault();
+        restData.map((item) => {
+            return dispatch(
+                loadMoreActions.show({
+                    id: item.id,
                     name: item.name,
                     img: item.imgUrl,
                     number: item.id,
@@ -27,24 +52,27 @@ function Pokemons() {
             );
         });
     };
-    useEffect(() => {
-        getData();
-    }, []);
 
     return (
         <div className={classes.Pokemons}>
             <div className={classes.PokemonsContent}>
                 <div className={classes.CardPokemons}>
-                    {data.map((item) => (
-                        <Card
-                            img={item.imgUrl}
-                            name={item.name}
-                            number={item.id}
-                            type={item.pokemonTypes}
-                        />
+                    {firstData.map((item) => (
+                        <div key={item.id} className={classes.item}>
+                            <Card
+                                img={item.imgUrl}
+                                name={item.name}
+                                number={item.id}
+                                type={item.pokemonTypes}
+                            />
+                        </div>
                     ))}
                 </div>
+                <div className={classes.More}>{showMoreData && <LoadedMorePokemons />}</div>
                 <div className={classes.DetailPokemons}>{showDetail && <PokemonsDetail />}</div>
+            </div>
+            <div className={classes.LoadMore}>
+                <Button onClick={LoadHandler}>Load More</Button>
             </div>
         </div>
     );

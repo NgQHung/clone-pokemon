@@ -5,12 +5,10 @@ import { showDetailActions } from "../../../store/showDetail-slice";
 import "./Tag.css";
 
 function Card(props) {
-    const [type, setType] = useState([]);
     const dispatch = useDispatch();
 
     const clickHandler = (e) => {
         e.preventDefault();
-        // console.log(props.number);
         dispatch(showDetailActions.show(props.number));
     };
     return (

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialValue = { data: [], showDetail: false, dataClicked: [] };
-console.log(initialValue.data);
 
 const showDetailSlice = createSlice({
     name: "detail",
@@ -20,6 +19,7 @@ const showDetailSlice = createSlice({
             if (dataIsEmpty) {
                 clickedId.map((item) =>
                     state.dataClicked.push({
+                        id: item.number,
                         img: item.img,
                         name: item.name,
                         number: item.number,

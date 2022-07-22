@@ -16,3 +16,15 @@
     /* flex: 4; */
     /* display: none; */
 }
+.item {
+    flex: 1 0 21%;
+}
+.LoadMore {
+    margin-top: 50px;
+    /* display: flex;
+    flex-direction: column; */
+}
+.More {
+    display: flex;
+    flex-wrap: wrap;
+}

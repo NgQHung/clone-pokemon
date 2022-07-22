@@ -6,11 +6,10 @@ import classes from "./PokemonsDetail.module.css";
 
 function PokemonsDetail(props) {
     const getDetail = useSelector((state) => state.showDetailSlice.dataClicked);
-    console.log(getDetail);
     return (
         <CardDetail>
             {getDetail.map((item) => (
-                <div className={classes.Card}>
+                <div key={props.number} className={classes.Card}>
                     <div className={classes.CardInner}>
                         <div className={classes.Img}>
                             <img src={item.img} alt="pic" />
