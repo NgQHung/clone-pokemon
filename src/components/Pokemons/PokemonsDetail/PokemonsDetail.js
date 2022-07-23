@@ -4,6 +4,21 @@ import Card from "../../Ui/Card/Card";
 import CardDetail from "../../Ui/CardDetail/CardDetail";
 import classes from "./PokemonsDetail.module.css";
 
+export const PokemonsDetailEmpty = () => {
+    return (
+        <CardDetail>
+            <div className={classes.Card}>
+                <div className={classes.Img}>
+                    <img src="./no-pokemon-selected-image.png" />
+                </div>
+                <div>
+                    <p>Select a Pokemon to display here.</p>
+                </div>
+            </div>
+        </CardDetail>
+    );
+};
+
 function PokemonsDetail(props) {
     const getDetail = useSelector((state) => state.showDetailSlice.dataClicked);
     return (

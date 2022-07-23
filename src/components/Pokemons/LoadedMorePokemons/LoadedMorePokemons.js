@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useSelector } from "react-redux";
 import Card from "../../Ui/Card/Card";
-import classes from "./LoadedMorePokemons";
+import classes from "../Pokemons.module.css";
 
 function LoadedMorePokemons() {
     const [loadedData, setLoadedData] = useState([]);
     const loadedMoreData = useSelector((state) => state.loadMore.loadedMoreData);
 
     return (
-        <div>
+        <Fragment>
             {loadedMoreData.map((item) => (
                 <div key={item.id} className={classes.item}>
                     <Card
@@ -19,7 +19,7 @@ function LoadedMorePokemons() {
                     />
                 </div>
             ))}
-        </div>
+        </Fragment>
     );
 }
 

@@ -1,10 +1,18 @@
 .Pokemons {
+    position: relative;
     margin-top: 120px;
-    width: 1080px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
 }
 .PokemonsContent {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    row-gap: 65px;
+}
+.PokemonsInner {
+    display: block;
 }
 .Pokemons .CardPokemons {
     display: flex;
@@ -13,16 +21,21 @@
 }
 
 .DetailPokemons {
-    /* flex: 4; */
-    /* display: none; */
+    position: fixed;
+    display: block;
+    right: 10px;
+    bottom: 20px;
+}
+.DetailContent {
+    position: relative;
 }
 .item {
     flex: 1 0 21%;
 }
 .LoadMore {
     margin-top: 50px;
-    /* display: flex;
-    flex-direction: column; */
+    /* display: flex; */
+    flex-direction: row;
 }
 .More {
     display: flex;

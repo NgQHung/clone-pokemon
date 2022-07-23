@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Pokemons.module.css";
 import Card from "../Ui/Card/Card";
-import PokemonsDetail from "./PokemonsDetail/PokemonsDetail";
+import PokemonsDetail, { PokemonsDetailEmpty } from "./PokemonsDetail/PokemonsDetail";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { showDetailActions } from "../../store/showDetail-slice";
 import Button from "../Ui/Button/Button";
@@ -55,24 +55,33 @@ function Pokemons() {
 
     return (
         <div className={classes.Pokemons}>
-            <div className={classes.PokemonsContent}>
-                <div className={classes.CardPokemons}>
-                    {firstData.map((item) => (
-                        <div key={item.id} className={classes.item}>
-                            <Card
-                                img={item.imgUrl}
-                                name={item.name}
-                                number={item.id}
-                                type={item.pokemonTypes}
-                            />
-                        </div>
-                    ))}
+            <div className={classes.PokemonsInner}>
+                <div className={classes.PokemonsContent}>
+                    <div className={classes.CardPokemons}>
+                        {firstData.map((item) => (
+                            <div key={item.id} className={classes.item}>
+                                <Card
+                                    img={item.imgUrl}
+                                    name={item.name}
+                                    number={item.id}
+                                    type={item.pokemonTypes}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                    <div className={classes.CardPokemons}>
+                        {showMoreData && <LoadedMorePokemons />}
+                    </div>
+                    <div className={classes.LoadMore}>
+                        <Button onClick={LoadHandler}>Load More</Button>
+                    </div>
                 </div>
-                <div className={classes.More}>{showMoreData && <LoadedMorePokemons />}</div>
-                <div className={classes.DetailPokemons}>{showDetail && <PokemonsDetail />}</div>
             </div>
-            <div className={classes.LoadMore}>
-                <Button onClick={LoadHandler}>Load More</Button>
+            <div className={classes.DetailPokemons}>
+                <div className={classes.DetailContent}>
+                    {!showDetail && <PokemonsDetailEmpty />}
+                    {showDetail && <PokemonsDetail />}
+                </div>
             </div>
         </div>
     );
