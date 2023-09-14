@@ -8,7 +8,7 @@ export const PokemonsDetailEmpty = () => {
         <CardDetail>
             <div className={classes.Card}>
                 <div className={classes.Img}>
-                    <img src="./no-pokemon-selected-image.png" />
+                    <img src="./no-pokemon-selected-image.png" alt="no pokemon" />
                 </div>
                 <div>
                     <p>Select a Pokemon to display here.</p>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import classes from './Pokemons.module.css';
 import Card from '../Ui/Card/Card';
