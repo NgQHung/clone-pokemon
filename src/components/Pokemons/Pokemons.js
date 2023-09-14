@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
-import classes from "./Pokemons.module.css";
-import Card from "../Ui/Card/Card";
-import PokemonsDetail, { PokemonsDetailEmpty } from "./PokemonsDetail/PokemonsDetail";
-import { useDispatch, useSelector } from "react-redux/es/exports";
-import { showDetailActions } from "../../store/showDetail-slice";
-import Button from "../Ui/Button/Button";
-import { loadMoreActions } from "../../store/loadMoreItems";
-import LoadedMorePokemons from "./LoadedMorePokemons/LoadedMorePokemons";
+import React, {useEffect, useState} from 'react';
+import classes from './Pokemons.module.css';
+import Card from '../Ui/Card/Card';
+import PokemonsDetail, {PokemonsDetailEmpty} from './PokemonsDetail/PokemonsDetail';
+import {useDispatch, useSelector} from 'react-redux/es/exports';
+import {showDetailActions} from '../../store/showDetail-slice';
+import Button from '../Ui/Button/Button';
+import {loadMoreActions} from '../../store/loadMoreItems';
+import LoadedMorePokemons from './LoadedMorePokemons/LoadedMorePokemons';
 
 function Pokemons() {
-    const [data, setData] = useState([]);
     const [firstData, setFirstData] = useState([]);
     const [restData, setRestData] = useState([]);
 
@@ -18,10 +17,9 @@ function Pokemons() {
     const showMoreData = useSelector((state) => state.loadMore.loadMoreIsClicked);
     const getData = async () => {
         const response = await fetch(
-            "https://react-http-973bc-default-rtdb.firebaseio.com/pokemons.json"
+            'https://react-http-973bc-default-rtdb.firebaseio.com/pokemons.json'
         );
         var data = await response.json();
-        setData(data);
         data.map((item) => {
             return dispatch(
                 showDetailActions.updateData({

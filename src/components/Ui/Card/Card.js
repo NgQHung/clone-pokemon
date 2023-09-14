@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import classes from "./Card.module.css";
-import { showDetailActions } from "../../../store/showDetail-slice";
-import "./Tag.css";
+import React from 'react';
+import {useDispatch} from 'react-redux';
+import classes from './Card.module.css';
+import {showDetailActions} from '../../../store/showDetail-slice';
+import './Tag.css';
 
 function Card(props) {
     const dispatch = useDispatch();

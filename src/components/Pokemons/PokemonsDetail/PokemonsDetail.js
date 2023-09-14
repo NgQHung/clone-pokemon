@@ -1,8 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Card from "../../Ui/Card/Card";
-import CardDetail from "../../Ui/CardDetail/CardDetail";
-import classes from "./PokemonsDetail.module.css";
+import React from 'react';
+import {useSelector} from 'react-redux';
+import CardDetail from '../../Ui/CardDetail/CardDetail';
+import classes from './PokemonsDetail.module.css';
 
 export const PokemonsDetailEmpty = () => {
     return (
